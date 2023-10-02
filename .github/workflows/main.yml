@@ -19,3 +19,4 @@ jobs:
           gradle-version: 8.3
           arguments: build
           build-root-directory: app
+      - run: ./gradlew test
