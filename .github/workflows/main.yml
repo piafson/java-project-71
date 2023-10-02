@@ -21,4 +21,4 @@ jobs:
           build-root-directory: app
       - name: Run checkstyle
         working-directory: ./app
-        run: gradlew checkstyleMain
+        run: ./gradlew checkstyleMain
