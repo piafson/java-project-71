@@ -19,5 +19,6 @@ jobs:
           gradle-version: 8.3
           arguments: build
           build-root-directory: app
+      - name: Run checkstyle
         working-directory: ./app
-      - run: ./gradlew test
+        run: gradlew checkstyleMain
