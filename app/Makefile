@@ -1,2 +1,5 @@
 run-dist:
-	./build/install/app/bin/app
+	./build/install/app/bin/app ./src/main/resources/file1.json ./src/main/resources/file2.json
+
+help:
+	./build/install/app/bin/app -h
