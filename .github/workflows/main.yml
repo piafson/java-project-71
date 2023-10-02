@@ -22,3 +22,6 @@ jobs:
       - name: Run checkstyle
         working-directory: ./app
         run: ./gradlew checkstyleMain
+      - name: Run test
+        working-directory: ./app
+        run: ./gradlew test
