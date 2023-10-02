@@ -22,9 +22,13 @@ public class Differ {
         TreeMap<String, Object> mapJson1 = new TreeMap<>();
         TreeMap<String, Object> mapJson2 = new TreeMap<>();
         jsonNode1.fieldNames().forEachRemaining(
-                s -> { mapJson1.put(s, jsonNode1.get(s)); });
+                s -> {
+                    mapJson1.put(s, jsonNode1.get(s));
+                });
         jsonNode2.fieldNames().forEachRemaining(
-                s -> { mapJson2.put(s, jsonNode2.get(s)); });
+                s -> {
+                    mapJson2.put(s, jsonNode2.get(s));
+                });
 
         mapJson1.entrySet().forEach(s -> {
             if (s.getValue().equals(mapJson2.get(s.getKey()))) {
