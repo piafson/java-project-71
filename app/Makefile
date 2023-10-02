@@ -4,4 +4,7 @@ run-dist:
 help:
 	./build/install/app/bin/app -h
 
+report:
+	./gradlew jacocoTestReport
+
 .PHONY: build
