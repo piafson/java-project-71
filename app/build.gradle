@@ -31,6 +31,13 @@ test {
     useJUnitPlatform()
 }
 
+jacocoTestReport {
+    dependsOn test
+    reports {
+        xml.required = true
+    }
+}
+
 compileJava {
     options.release = 20
 }
