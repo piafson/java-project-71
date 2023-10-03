@@ -15,7 +15,7 @@ public class Parser {
         if (filePath.endsWith("json")) {
             return new ObjectMapper();
         }
-        if (filePath.endsWith("yaml")) {
+        if (filePath.endsWith("yml")) {
             return new YAMLMapper();
         }
         return new ObjectMapper();
@@ -24,7 +24,7 @@ public class Parser {
             throws IOException {
         Path path = Paths.get(filePath).toAbsolutePath().normalize();
         String pathStr = new String(Files.readAllBytes(path));
-        JsonNode jsonNode1 = getObj(pathStr).readTree(pathStr);
+        JsonNode jsonNode1 = getObj(path.toString()).readTree(pathStr);
         TreeMap<String, Object> mapObj = new TreeMap<>();
         jsonNode1.fieldNames().forEachRemaining(
                 s -> {
