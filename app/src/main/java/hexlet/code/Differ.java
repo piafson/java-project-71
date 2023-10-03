@@ -18,7 +18,7 @@ public class Differ {
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode jsonNode1 = objectMapper.readTree(json1);
         JsonNode jsonNode2 = objectMapper.readTree(json2);
-        StringBuilder result = new StringBuilder("{\n");
+
         TreeMap<String, Object> mapJson1 = new TreeMap<>();
         TreeMap<String, Object> mapJson2 = new TreeMap<>();
         jsonNode1.fieldNames().forEachRemaining(
@@ -29,7 +29,11 @@ public class Differ {
                 s -> {
                     mapJson2.put(s, jsonNode2.get(s));
                 });
-
+        return getString(mapJson1, mapJson2);
+    }
+    public static String getString(TreeMap<String, Object> mapJson1,
+                                   TreeMap<String, Object> mapJson2) {
+        StringBuilder result = new StringBuilder("{\n");
         mapJson1.entrySet().forEach(s -> {
             if (s.getValue().equals(mapJson2.get(s.getKey()))) {
                 result.append("    " + s.getKey() + ": " + s.getValue() + "\n");
