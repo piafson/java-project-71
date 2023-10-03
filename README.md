@@ -1,5 +1,6 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/piafson/java-project-71/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/piafson/java-project-71/actions)
+[![Actions Status](https://github.com/piafson/java-project-71/actions/workflows/Build/badge.svg)](https://github.com/piafson/java-project-71/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/ed19bffc651c8c18a43a/maintainability)](https://codeclimate.com/github/piafson/java-project-71/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/ed19bffc651c8c18a43a/test_coverage)](https://codeclimate.com/github/piafson/java-project-71/test_coverage)
 
