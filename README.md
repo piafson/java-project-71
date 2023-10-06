@@ -7,6 +7,8 @@
 ### Demo:
 ["Step 5: Comparing the two JSON files"](https://asciinema.org/a/vBtwP2w8MaWLqEjDpHnJxDDHF) <br />
 
-["Step 7: Comparing the two YAML files"](https://asciinema.org/a/PHFPUjHS5gA4DU67nOdokhaC8)
+["Step 7: Comparing the two YAML files"](https://asciinema.org/a/PHFPUjHS5gA4DU67nOdokhaC8) <br />
+
+["Step 8: Comparing the two files"](https://asciinema.org/a/GTvJJyR9YUFnTgoZjDor7Z5pM)
 
 
