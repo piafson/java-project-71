@@ -12,10 +12,11 @@ import java.util.TreeMap;
 
 public class Parser {
     public static ObjectMapper getObj(String filePath) throws IOException {
-        if (filePath.endsWith("json")) {
+        if (filePath.substring(filePath.lastIndexOf(".") + 1).equals("json")) {
             return new ObjectMapper();
         }
-        if (filePath.endsWith("yml")) {
+        if (filePath.substring(filePath.lastIndexOf(".") + 1).equals("yml")
+                || filePath.substring(filePath.lastIndexOf(".") + 1).equals("yaml")) {
             return new YAMLMapper();
         }
         return new ObjectMapper();

@@ -38,6 +38,3 @@ jacocoTestReport {
     }
 }
 
-compileJava {
-    options.release = 20
-}
