@@ -9,6 +9,8 @@
 
 ["Step 7: Comparing the two YAML files"](https://asciinema.org/a/PHFPUjHS5gA4DU67nOdokhaC8) <br />
 
-["Step 8: Comparing the two files"](https://asciinema.org/a/GTvJJyR9YUFnTgoZjDor7Z5pM)
+["Step 8: Comparing the two files"](https://asciinema.org/a/GTvJJyR9YUFnTgoZjDor7Z5pM) <br />
+
+["Step 9: Formatter Plain"](https://asciinema.org/a/tZUVYFRs2EQWiwZ8zBhtAB8R1)
 
 

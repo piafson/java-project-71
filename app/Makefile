@@ -30,6 +30,9 @@ lint:
 check-deps:
 	./gradlew dependencyUpdates -Drevision=release
 
+run-dist-plain:
+	./build/install/app/bin/app -f plain ./src/main/resources/file1.json ./src/main/resources/file2.json
+
 
 build-run: build run
 

@@ -8,7 +8,7 @@ import picocli.CommandLine.Parameters;
 
 @Command(name = "gendiff", mixinStandardHelpOptions = true,
         description = "Compares two configuration files and shows a difference.")
-class App implements Callable<Integer> {
+public class App implements Callable<Integer> {
     @Option(names = {"-h", "--help"}, usageHelp = true,
             description = "Show this help message and exit.")
     boolean usageHelpRequested;
@@ -19,7 +19,7 @@ class App implements Callable<Integer> {
 
     @Option(names = {"-f", "--format"}, defaultValue = "stylish",
             description = "output format [default: ${DEFAULT-VALUE}]")
-    private String format;
+    private String formatName;
 
     @Parameters(index = "0", description = "path to first file")
     private String filePath1;
@@ -29,11 +29,7 @@ class App implements Callable<Integer> {
 
     @Override
     public Integer call() throws Exception {
-        try {
-            System.out.println(Differ.generate(filePath1, filePath2));
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+        System.out.println(Differ.generate(filePath1, filePath2, formatName));
         return 0;
     }
 

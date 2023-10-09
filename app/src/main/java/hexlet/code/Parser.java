@@ -2,6 +2,7 @@ package hexlet.code;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
 
 import java.io.IOException;
@@ -13,7 +14,7 @@ import java.util.TreeMap;
 public class Parser {
     public static ObjectMapper getObj(String filePath) throws IOException {
         if (filePath.substring(filePath.lastIndexOf(".") + 1).equals("json")) {
-            return new ObjectMapper();
+            return new JsonMapper();
         }
         if (filePath.substring(filePath.lastIndexOf(".") + 1).equals("yml")
                 || filePath.substring(filePath.lastIndexOf(".") + 1).equals("yaml")) {

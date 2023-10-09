@@ -1,4 +1,4 @@
-package hexlet.code;
+package hexlet.code.formatters;
 
 import java.util.Map;
 public class Stylish {
@@ -28,7 +28,8 @@ public class Stylish {
                 result.append(del + getFormatiingString(s.getKey(), s.getValue()));
             }
         });
-        return result + "}";
+        result.append("}");
+        return result.toString();
     }
     public static String getFormatiingString(String key, String value) {
         String formattingString = "";

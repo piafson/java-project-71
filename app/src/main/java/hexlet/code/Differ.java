@@ -7,7 +7,7 @@ import java.util.TreeMap;
 import java.util.stream.Stream;
 
 public class Differ {
-    public static String generate(String filePath1, String filePath2)
+    public static String generate(String filePath1, String filePath2, String formatName)
             throws IOException {
         Map<String, Object> mapJson1 = Parser.readObj(filePath1);
         Map<String, Object> mapJson2 = Parser.readObj(filePath2);
@@ -29,11 +29,13 @@ public class Differ {
                         res.put(s.getKey() + " unch", s.getValue().toString());
 
                     } else if (!s.getValue().equals(mapJson2.get(s.getKey()))) {
-                        res.put(s.getKey() + " 1chahge", s.getValue().toString());
+                        res.put(s.getKey() + " 1change", s.getValue().toString());
                     } else {
                         res.put(s.getKey() + " 2change", s.getValue().toString());
                     }
                 });
-        return Stylish.formatting(res);
+        //return Stylish.formatting(res);
+        //return Plain.formatting(res);
+        return Formatter.getFormStr(res, formatName);
     }
 }
