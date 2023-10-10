@@ -27,7 +27,6 @@ public class Differ {
                     } else if (Objects.equals(mapJson1.get(s.getKey()),
                             mapJson2.get(s.getKey()))) {
                         res.put(s.getKey() + " unch", s.getValue().toString());
-
                     } else if (!s.getValue().equals(mapJson2.get(s.getKey()))) {
                         res.put(s.getKey() + " 1change", s.getValue().toString());
                     } else {
