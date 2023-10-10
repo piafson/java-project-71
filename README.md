@@ -11,6 +11,6 @@
 
 ["Step 8: Comparing the two files"](https://asciinema.org/a/GTvJJyR9YUFnTgoZjDor7Z5pM) <br />
 
-["Step 9: Formatter Plain"](https://asciinema.org/a/tZUVYFRs2EQWiwZ8zBhtAB8R1)
+["Step 9: Formatter Plain"](https://asciinema.org/a/tZUVYFRs2EQWiwZ8zBhtAB8R1) <br />
 
-
+["Step 10: Formatter Json"](https://asciinema.org/a/h8i1j5RM0oWLeBvQt2cfqxaBW)

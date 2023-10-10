@@ -34,8 +34,9 @@ public class Differ {
                         res.put(s.getKey() + " 2change", s.getValue().toString());
                     }
                 });
-        //return Stylish.formatting(res);
-        //return Plain.formatting(res);
         return Formatter.getFormStr(res, formatName);
+    }
+    public static String generate(String filePath1, String filePath2) throws IOException {
+        return generate(filePath1, filePath2, "stylish");
     }
 }
