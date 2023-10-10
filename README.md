@@ -4,7 +4,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/ed19bffc651c8c18a43a/maintainability)](https://codeclimate.com/github/piafson/java-project-71/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/ed19bffc651c8c18a43a/test_coverage)](https://codeclimate.com/github/piafson/java-project-71/test_coverage)
 
-***Description:**
+### Description:
 
 Difference Calculator is a small console application for comparing two json/yaml files. The program displays data in text, stylish, json formats.
 
