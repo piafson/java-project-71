@@ -1,41 +1,39 @@
 package hexlet.code;
 
+import com.fasterxml.jackson.databind.JsonNode;
+
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Map;
-import java.util.Objects;
 import java.util.TreeMap;
-import java.util.stream.Stream;
+
+import static hexlet.code.Parser.getObj;
 
 public class Differ {
     public static String generate(String filePath1, String filePath2, String formatName)
             throws IOException {
-        Map<String, Object> mapJson1 = Parser.readObj(filePath1);
-        Map<String, Object> mapJson2 = Parser.readObj(filePath2);
-        Map<String, String> res = new TreeMap<>();
+        Map<String, Object> mapJson1 = readObj(filePath1);
+        Map<String, Object> mapJson2 = readObj(filePath2);
 
-        Stream
-                .concat(mapJson1.entrySet().stream(), mapJson2.entrySet().stream())
-                .forEachOrdered(s -> {
-                    if (mapJson1.containsKey(s.getKey())
-                            && !mapJson2.containsKey(s.getKey())) {
-                        res.put(s.getKey() + " del", s.getValue().toString());
-
-                    } else if (!mapJson1.containsKey(s.getKey())
-                            && mapJson2.containsKey(s.getKey())) {
-                        res.put(s.getKey() + " add", s.getValue().toString());
-
-                    } else if (Objects.equals(mapJson1.get(s.getKey()),
-                            mapJson2.get(s.getKey()))) {
-                        res.put(s.getKey() + " unch", s.getValue().toString());
-                    } else if (!s.getValue().equals(mapJson2.get(s.getKey()))) {
-                        res.put(s.getKey() + " 1change", s.getValue().toString());
-                    } else {
-                        res.put(s.getKey() + " 2change", s.getValue().toString());
-                    }
-                });
-        return Formatter.getFormStr(res, formatName);
+        return Formatter.getFormStr(DiffBuilder.buildDiff(mapJson1, mapJson2),
+                formatName);
     }
     public static String generate(String filePath1, String filePath2) throws IOException {
         return generate(filePath1, filePath2, "stylish");
+    }
+    public static TreeMap<String, Object> readObj(String filePath)
+            throws IOException {
+        Path path = Paths.get(filePath).toAbsolutePath().normalize();
+        String extension = filePath.substring(filePath.lastIndexOf(".") + 1);
+        String pathStr = new String(Files.readAllBytes(path));
+        JsonNode objNode = getObj(extension).readTree(pathStr);
+        TreeMap<String, Object> mapObj = new TreeMap<>();
+        objNode.fieldNames().forEachRemaining(
+                s -> {
+                    mapObj.put(s, objNode.get(s));
+                });
+        return mapObj;
     }
 }

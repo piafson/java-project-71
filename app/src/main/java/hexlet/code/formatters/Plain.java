@@ -1,32 +1,32 @@
 package hexlet.code.formatters;
 
 import java.util.Map;
-
+import java.util.List;
 public class Plain {
-    public static String formatting(Map<String, String> inp) {
+    public static String formatting(Map<String, List<String>> inp) {
         StringBuilder result = new StringBuilder();
         inp.entrySet().forEach(s -> {
-            if (s.getKey()
-                    .substring(s.getKey().lastIndexOf(" ") + 1)
-                    .equals("1change")) {
-                result.append("Property '" + s.getKey().split(" ")[0]
-                        + "' was updated. From " + getFormatiingString(s.getValue())
-                        + " to "
-                        + getFormatiingString(
-                        inp.get(s.getKey().split(" ")[0] + " 2change"))
-                        + "\n");
-            } else if (s.getKey()
-                    .substring(s.getKey().lastIndexOf(" ") + 1)
-                    .equals("add")) {
-                result.append("Property '" + s.getKey().split(" ")[0]
-                        + "' was added with value: "
-                        + getFormatiingString(s.getValue()) + "\n");
-            } else if (s.getKey()
-                    .substring(s.getKey().lastIndexOf(" ") + 1)
-                    .equals("del")) {
-                result.append("Property '" + s.getKey().split(" ")[0]
-                        + "' was removed"
-                        + "\n");
+            switch (s.getValue().get(0)) {
+                case "change" -> {
+                    result.append("Property '" + s.getKey()
+                            + "' was updated. From "
+                            + getFormatiingString(s.getValue().get(2)) + " to "
+                            + getFormatiingString(s.getValue().get(1))
+                            + "\n");
+                }
+                case "add" -> {
+                    result.append("Property '" + s.getKey()
+                            + "' was added with value: "
+                            + getFormatiingString(s.getValue().get(1)) + "\n");
+                }
+                case "del" -> {
+                    result.append("Property '" + s.getKey()
+                            + "' was removed"
+                            + "\n");
+                }
+                default -> {
+                    result.append("");
+                }
             }
         });
         String res = result.toString();
