@@ -10,22 +10,25 @@ public class Stylish {
         final String del = "  - ";
 
         inp.entrySet().forEach(s -> {
-            if (s.getValue().get(0)
-                    .equals("unchanged")) {
-
-                result.append(unchanged + getFormatiingString(s.getKey(), s.getValue().get(1)));
-            } else if (s.getValue().get(0)
-                    .equals("change")) {
-
-                result.append(del + getFormatiingString(s.getKey(), s.getValue().get(2)));
-                result.append(add + getFormatiingString(s.getKey(), s.getValue().get(1)));
-            } else if (s.getValue().get(0)
-                    .equals("add")) {
-
-                result.append(add + getFormatiingString(s.getKey(), s.getValue().get(1)));
-            } else {
-
-                result.append(del + getFormatiingString(s.getKey(), s.getValue().get(1)));
+            switch (s.getValue().get(0)) {
+                case "unchanged" -> {
+                    result.append(unchanged + getFormatiingString(s.getKey(),
+                            s.getValue().get(1)));
+                }
+                case "change" -> {
+                    result.append(del + getFormatiingString(s.getKey(),
+                            s.getValue().get(2)));
+                    result.append(add + getFormatiingString(s.getKey(),
+                            s.getValue().get(1)));
+                }
+                case "add" -> {
+                    result.append(add + getFormatiingString(s.getKey(),
+                            s.getValue().get(1)));
+                }
+                default -> {
+                    result.append(del + getFormatiingString(s.getKey(),
+                            s.getValue().get(1)));
+                }
             }
         });
         result.append("}");
